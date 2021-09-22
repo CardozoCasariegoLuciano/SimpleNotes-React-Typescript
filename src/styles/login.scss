@@ -1,0 +1,98 @@
+.login {
+	width: 85%;
+	margin: auto;
+	padding-top: 150px;
+
+	form {
+		width: 400px;
+		height: 330px;
+		margin: auto;
+		background-color: rgba(0, 230, 214, 0.27);
+		border-radius: 15px;
+		border: 1px solid #333;
+	}
+
+	.form_data {
+		height: 100%;
+		width: 80%;
+		margin: auto;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		h3 {
+			color: rgba(172, 0, 230, 0.6);
+		}
+
+		label {
+			margin-bottom: 10px;
+			color: rgba(172, 0, 230, 0.6);
+
+			align-self: flex-start;
+			margin-left: 25px;
+		}
+
+		input[type="text"],
+		input[type="password"] {
+			border: none;
+			outline: none;
+
+			width: 90%;
+			font-size: 16px;
+			height: 25px;
+
+			border-radius: 10px;
+
+			margin-bottom: 13px;
+			padding-left: 15px;
+		}
+
+		button {
+			width: 30%;
+			height: 25px;
+			font-size: 16px;
+
+			border: none;
+			outline: none;
+
+			background-color: rgba(103, 0, 230, 0.67);
+			color: #eee;
+			border-radius: 20px;
+			cursor: pointer;
+
+			margin-top: 10px;
+		}
+	}
+}
+
+.checkBoxDiv {
+
+	align-self: flex-start;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	input[type="checkbox"] {
+		width: 18px;
+		height: 18px;
+		margin: 0px 0px 8px 5px;
+	}
+	.labelChkBox {
+		margin: 0px;
+	}
+}
+
+
+.linkToRegister{
+	margin-top: 20px;
+
+	color: rgba(53, 0, 117, 0.67);
+}
+
+.modalAlertLogin{
+	width: 400px;
+	margin: auto;
+	margin-top: 30px;
+}
