@@ -1,20 +1,26 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { verifyLoginForm } from "../helpers/functions";
+import {UserContext} from "../context/userContext";
+import { verifyLoginForm, veryfyTokenStoraged } from "../helpers/functions";
 import { useShowAlert } from "../hooks/useShowAlert";
 import { IUserLogin } from "../interfaces/user_Interfaces";
 import { login } from "../services/login";
 import "../styles/login.scss";
 
 const Login = () => {
-  const [showModal, modalText, isVisibleModal] = useShowAlert();
+
   const history = useHistory();
+  const {setUser} = useContext(UserContext)
+  const [remember, setRemember] = useState<boolean>(false);
+  const [showModal, modalText, isVisibleModal] = useShowAlert();
   const [loginUser, setLoginUser] = useState<IUserLogin>({
     email: "",
     password: "",
   });
 
-  const [remember, setRemember] = useState<boolean>(false);
+  useEffect(() => {
+   veryfyTokenStoraged(history) 
+  },[])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginUser({ ...loginUser, [e.target.name]: e.target.value });
@@ -40,6 +46,7 @@ const Login = () => {
           localStorage.removeItem("token");
           sessionStorage.setItem("token", respLogin.data.Token);
         }
+        setUser(respLogin.data.Usuario)
         history.push("/");
       } else {
         const text = respLogin.data.Mensaje;

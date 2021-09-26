@@ -9,3 +9,17 @@ export const verifyLoginForm = (data: IUserLogin) => {
 
   return isValidMail && isValidPass;
 };
+
+
+export const veryfyTokenStoraged = ( history: any)=> {
+
+  const tokenOnLocalSt = localStorage.getItem("token")
+  const tokenOnSessionSt = sessionStorage.getItem("token")
+
+  const value =  (tokenOnSessionSt || tokenOnLocalSt)
+
+  if(value){
+    history.push("/")
+  }
+
+}
