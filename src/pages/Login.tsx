@@ -1,16 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import {UserContext} from "../context/userContext";
-import { verifyLoginForm, veryfyTokenStoraged } from "../helpers/functions";
+import { verifyLoginForm, veryfyTokenStoragedOnLoginRegister } from "../helpers/functions";
 import { useShowAlert } from "../hooks/useShowAlert";
 import { IUserLogin } from "../interfaces/user_Interfaces";
 import { login } from "../services/login";
-import "../styles/login.scss";
+import "../styles/login-register.scss";
 
 const Login = () => {
-
   const history = useHistory();
-  const {setUser} = useContext(UserContext)
   const [remember, setRemember] = useState<boolean>(false);
   const [showModal, modalText, isVisibleModal] = useShowAlert();
   const [loginUser, setLoginUser] = useState<IUserLogin>({
@@ -19,8 +16,8 @@ const Login = () => {
   });
 
   useEffect(() => {
-   veryfyTokenStoraged(history) 
-  },[])
+    veryfyTokenStoragedOnLoginRegister(history);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginUser({ ...loginUser, [e.target.name]: e.target.value });
@@ -46,7 +43,6 @@ const Login = () => {
           localStorage.removeItem("token");
           sessionStorage.setItem("token", respLogin.data.Token);
         }
-        setUser(respLogin.data.Usuario)
         history.push("/");
       } else {
         const text = respLogin.data.Mensaje;
@@ -59,7 +55,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login_register">
       <form onSubmit={handleSubmit}>
         <div className="form_data">
           <h3>LogIn</h3>

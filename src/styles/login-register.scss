@@ -1,13 +1,14 @@
-.login {
+@import "./variables.scss";
+
+.login_register {
 	width: 85%;
 	margin: auto;
 	padding-top: 150px;
 
 	form {
 		width: 400px;
-		height: 330px;
 		margin: auto;
-		background-color: rgba(0, 230, 214, 0.27);
+		background-color: $form_bg;
 		border-radius: 15px;
 		border: 1px solid #333;
 	}
@@ -22,12 +23,12 @@
 		align-items: center;
 
 		h3 {
-			color: rgba(172, 0, 230, 0.6);
+			color: $form_color;
 		}
 
 		label {
 			margin-bottom: 10px;
-			color: rgba(172, 0, 230, 0.6);
+			color: $form_color;
 
 			align-self: flex-start;
 			margin-left: 25px;
@@ -56,8 +57,8 @@
 			border: none;
 			outline: none;
 
-			background-color: rgba(103, 0, 230, 0.67);
-			color: #eee;
+			background-color: $form_btn_bg;
+			color: $form_btn_color;
 			border-radius: 20px;
 			cursor: pointer;
 
@@ -67,7 +68,6 @@
 }
 
 .checkBoxDiv {
-
 	align-self: flex-start;
 
 	display: flex;
@@ -84,14 +84,17 @@
 	}
 }
 
-
-.linkToRegister{
-	margin-top: 20px;
-
-	color: rgba(53, 0, 117, 0.67);
+.linkToRegister {
+	margin: 20px 0px 30px 0px;
+	color: $form_linkTo;
 }
 
-.modalAlertLogin{
+.linkToLogIn {
+	margin: 20px 0px 30px 0px;
+	color: $form_linkTo;
+}
+
+.modalAlertLogin {
 	width: 400px;
 	margin: auto;
 	margin-top: 30px;

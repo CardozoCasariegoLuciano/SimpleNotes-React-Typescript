@@ -1,4 +1,6 @@
-import { IUserLogin } from "../interfaces/user_Interfaces";
+import { IUserContex, IUserLogin, IUserRegister } from "../interfaces/user_Interfaces";
+import jwtDecode from "jwt-decode";
+import {SetStateAction} from "react";
 
 export const verifyLoginForm = (data: IUserLogin) => {
   const regxPass: RegExp = /^[a-zA-Z0-9]{3,35}$/;
@@ -10,16 +12,45 @@ export const verifyLoginForm = (data: IUserLogin) => {
   return isValidMail && isValidPass;
 };
 
+export const verifyRegisterForm = (data: IUserRegister) => {
+  const regxPass: RegExp = /^[a-zA-Z0-9]{3,35}$/;
+  const regxSimpleMail: RegExp = /\S+@\S+\.\S+/;
 
-export const veryfyTokenStoraged = ( history: any)=> {
+  const areValidPass =
+    regxPass.test(data.password) && regxPass.test(data.repited_password);
+  const isValidMail = regxSimpleMail.test(data.email);
+  const haveName = data.name.length > 0;
 
-  const tokenOnLocalSt = localStorage.getItem("token")
-  const tokenOnSessionSt = sessionStorage.getItem("token")
+  return isValidMail && areValidPass && haveName;
+};
 
-  const value =  (tokenOnSessionSt || tokenOnLocalSt)
+export const veryfyTokenStoragedOnLoginRegister = (history: any) => {
+  const tokenOnLocalSt = localStorage.getItem("token");
+  const tokenOnSessionSt = sessionStorage.getItem("token");
 
-  if(value){
-    history.push("/")
+  const value = tokenOnSessionSt || tokenOnLocalSt;
+
+  if (value) {
+    history.push("/");
+  }
+};
+
+
+export const veryfyTokenStoragedOnPages = (history: any, state: React.Dispatch<SetStateAction<IUserContex>>) => {
+    const token = localStorage.getItem("token") || sessionStorage.getItem("token")
+    if(!token){
+      history.push("/login")
+    }else{
+      setCurrenUserOnContext(token, state)
+    }
   }
 
-}
+
+export const setCurrenUserOnContext = (token : string, state: React.Dispatch<SetStateAction<IUserContex>>) => {
+  const decodedToken: any = jwtDecode(token);
+  state({
+    name: decodedToken.data.name,
+    email: decodedToken.data.email,
+    id: decodedToken.data._id,
+  });
+};

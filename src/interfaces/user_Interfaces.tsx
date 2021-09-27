@@ -10,3 +10,11 @@ export interface IUserContex {
   email: string,
   id: string,
 } 
+
+
+export interface IUserRegister{
+  name: string,
+  email: string,
+  password: string,
+  repited_password: string,
+}
