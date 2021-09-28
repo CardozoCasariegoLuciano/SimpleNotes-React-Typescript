@@ -1,0 +1,9 @@
+@import "./variables.scss";
+.home{
+	box-sizing: border-box;
+	min-height: $minHeight_page;
+
+	h1{
+		margin: 0px;
+	}
+}

@@ -1,7 +1,23 @@
 //Login & register Pages
-
 $form_bg: rgba(0, 230, 214, 0.27);
 $form_color: rgba(172, 0, 230, 0.6);
 $form_btn_bg: rgba(103, 0, 230, 0.67);
 $form_btn_color: #eee;
 $form_linkTo: rgba(53, 0, 117, 0.67);
+
+
+//Header Component
+$header_bg:rgba(53, 0, 117, 0.67);
+$header_links_color: #eee;
+$header_logo_color: #eee;
+$header_height: 60px;
+
+
+//Footer Component
+$fotter_bg: rgba($color: #000, $alpha: 0.8);
+$fotter_color: #eee;
+$fotter_height: 50px;
+
+
+//All Pages
+$minHeight_page: calc(100vh - ($header_height + $fotter_height));

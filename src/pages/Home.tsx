@@ -1,23 +1,17 @@
-import {useContext, useEffect} from "react";
-import {useHistory} from "react-router-dom";
-import {UserContext} from "../context/userContext";
-import {veryfyTokenStoragedOnPages} from "../helpers/functions";
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
+import "../styles/home.scss";
 
 const Home = () => {
+  const { user } = useContext(UserContext);
 
-  const {user, setUser} = useContext(UserContext)
-  const history = useHistory()
-
-  useEffect(()=> {
-    veryfyTokenStoragedOnPages(history, setUser)
-  }, [])// eslint-disable-line react-hooks/exhaustive-deps
-
-
-  return (<h3>Welcome {user.name}, {user.id}, {user.email}</h3>);
+  return (
+    <>
+      <div className="home">
+        <h1>Welcome {user.name}</h1>
+      </div>
+    </>
+  );
 };
 
 export default Home;
-
-
-
-console.log("funcionaa no lo puedo creer loco alalajajajaja")

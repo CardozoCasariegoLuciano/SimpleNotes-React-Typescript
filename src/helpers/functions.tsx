@@ -54,3 +54,8 @@ export const setCurrenUserOnContext = (token : string, state: React.Dispatch<Set
     id: decodedToken.data._id,
   });
 };
+
+export const removeToken = (token : string) => {
+    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
+}

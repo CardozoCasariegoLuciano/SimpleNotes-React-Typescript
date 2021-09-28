@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import UserProvider from "./context/userContext";
 import FormNotes from "./pages/FromNotes";
 import Home from "./pages/Home";
@@ -13,13 +14,17 @@ function App() {
     <UserProvider>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/newnote" component={FormNotes} />
-          <Route exact path="/edit/:id" component={FormNotes} />
-          <Route component={NotFound} />
+          <Layout>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/newnote" component={FormNotes} />
+              <Route exact path="/edit/:id" component={FormNotes} />
+              <Route component={NotFound} />
+            </Switch>
+          </Layout>
         </Switch>
       </BrowserRouter>
     </UserProvider>
