@@ -1,0 +1,33 @@
+@import "./variables.scss";
+
+.notFound{
+	min-height: $minHeight_page;
+
+	.notFound_conteiner{
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		color: $notFound_color;
+	
+		justify-content: center;
+		align-items: center;
+		p{
+			margin:0px;
+		}	
+		.notFound_mainStatus{
+			font-size: 25rem;
+		}
+		.notFound_subtitle{
+			font-size: 2rem;
+		}
+		.notFound_btn{
+			font-size: 1.2rem;
+			cursor: pointer;
+			color: $notFound_btn_color;
+			margin-top: 20px;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+}
