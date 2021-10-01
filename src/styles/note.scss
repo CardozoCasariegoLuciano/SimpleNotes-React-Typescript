@@ -1,0 +1,38 @@
+@import "./variables.scss";
+
+.note {
+	position: relative;
+	background-color:$noteCard_bg ;
+	border-radius: 10px;
+	width: 250px;
+	height: 300px;
+	margin-bottom: auto;
+	text-align: center;
+	padding: 10px;
+	box-sizing: border-box;
+	transition: all 0.3s;
+
+	.note_author {
+		padding: 0px;
+		margin: 0px;
+		font-size: 1rem;
+		text-align: left;
+		padding-left: 10px;
+	}
+
+	.note_title {
+		margin: 5px 0px 0px 0px;
+		padding: 0px;
+	}
+
+	.note_date {
+		position: absolute;
+		bottom: 0;
+		right: 15px;
+	}
+}
+
+.getLarger {
+	height: auto;
+	grid-row: span 2;
+}

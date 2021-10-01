@@ -1,0 +1,25 @@
+.NoteDescription {
+}
+
+.NDescription_largeText {
+	padding: 0px 20px;
+
+	p {
+		text-align: justify;
+	}
+
+	.leerMas {
+		text-align: center;
+		color: #333;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+
+.NDescription_shortText {
+	padding: 0px 20px;
+}
+
+.expandedReadMore {
+	margin-bottom: 45px;
+}

@@ -1,6 +1,12 @@
-import { IUserContex, IUserLogin, IUserRegister } from "../interfaces/user_Interfaces";
+import {
+  IUserContex,
+  IUserLogin,
+  IUserRegister,
+} from "../interfaces/user_Interfaces";
 import jwtDecode from "jwt-decode";
-import {SetStateAction} from "react";
+import { SetStateAction } from "react";
+import { INoteState } from "../interfaces/note_Interfaces";
+import { getNotes, getUserNotes } from "../services/notes";
 
 export const verifyLoginForm = (data: IUserLogin) => {
   const regxPass: RegExp = /^[a-zA-Z0-9]{3,35}$/;
@@ -24,29 +30,33 @@ export const verifyRegisterForm = (data: IUserRegister) => {
   return isValidMail && areValidPass && haveName;
 };
 
+export const getToken = (token: string) => {
+  const ret = localStorage.getItem(token) || sessionStorage.getItem(token);
+  return ret;
+};
+
 export const veryfyTokenStoragedOnLoginRegister = (history: any) => {
-  const tokenOnLocalSt = localStorage.getItem("token");
-  const tokenOnSessionSt = sessionStorage.getItem("token");
-
-  const value = tokenOnSessionSt || tokenOnLocalSt;
-
-  if (value) {
+  if (getToken("token")) {
     history.push("/");
   }
 };
 
-
-export const veryfyTokenStoragedOnPages = (history: any, state: React.Dispatch<SetStateAction<IUserContex>>) => {
-    const token = localStorage.getItem("token") || sessionStorage.getItem("token")
-    if(!token){
-      history.push("/login")
-    }else{
-      setCurrenUserOnContext(token, state)
-    }
+export const veryfyTokenStoragedOnPages = (
+  history: any,
+  state: React.Dispatch<SetStateAction<IUserContex>>
+) => {
+  const token = getToken("token");
+  if (!token) {
+    history.push("/login");
+  } else {
+    setCurrenUserOnContext(token, state);
   }
+};
 
-
-export const setCurrenUserOnContext = (token : string, state: React.Dispatch<SetStateAction<IUserContex>>) => {
+export const setCurrenUserOnContext = (
+  token: string,
+  state: React.Dispatch<SetStateAction<IUserContex>>
+) => {
   const decodedToken: any = jwtDecode(token);
   state({
     name: decodedToken.data.name,
@@ -55,7 +65,20 @@ export const setCurrenUserOnContext = (token : string, state: React.Dispatch<Set
   });
 };
 
-export const removeToken = (token : string) => {
-    localStorage.removeItem("token");
-    sessionStorage.removeItem("token");
+export const removeToken = (token: string) => {
+  localStorage.removeItem("token");
+  sessionStorage.removeItem("token");
+};
+
+export const loadNotes = async (
+  state: React.Dispatch<SetStateAction<INoteState[]>>
+) => {
+  const notes = await getNotes();
+  state(notes.data);
+};
+
+export const loadUserNotes = async (state : React.Dispatch<SetStateAction<INoteState[]>>) => {
+
+  const userNotes = await getUserNotes()
+  state(userNotes.data)
 }

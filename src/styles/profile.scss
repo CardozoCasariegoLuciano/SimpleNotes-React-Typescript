@@ -1,0 +1,52 @@
+@import "./variables.scss";
+
+.profile {
+	min-height: $minHeight_page;
+	width: 100%;
+}
+
+.profile_content {
+	width: 70%;
+	margin: auto;
+	margin-top: 70px;
+	margin-bottom: 30px;
+
+	display: grid;
+	grid-template-columns: 20% 80%;
+	grid-gap: 20px;
+
+	h3 {
+		text-align: center;
+	}
+
+	.profile_UserSection {
+		margin-bottom: auto;
+
+		span {
+			font-weight: bold;
+		}
+
+		.userSection_box {
+			border: 1px solid black;
+			border-radius: 15px;
+			.profile_UserData {
+				padding: 30px;
+			}
+		}
+	}
+
+	.profile_NoteSection {
+		width: 100%;
+		border-radius: 15px;
+		border: 1px solid black;
+		padding-bottom: 30px;
+
+		.profil_Notes {
+			//background-color: red;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 20px;
+			justify-items: center;
+		}
+	}
+}
