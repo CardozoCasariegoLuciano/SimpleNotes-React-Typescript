@@ -4,10 +4,12 @@ import { INoteState } from "../interfaces/note_Interfaces";
 import "../styles/profile.scss";
 import { loadUserNotes } from "../helpers/functions";
 import Note from "../components/Note";
+import EditUserForm from "../components/EditUserForm";
 
 const Profile = () => {
   const { user } = useContext(UserContext);
   const [userNotes, setUserNotes] = useState<INoteState[]>([]);
+  const [showeditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
     loadUserNotes(setUserNotes);
@@ -32,14 +34,26 @@ const Profile = () => {
               </p>
             </div>
           </div>
-          change name or password
+          <button
+            className="updateBTN"
+            onClick={() => setShowEditForm(!showeditForm)}
+          >
+            {!showeditForm ? "Change Name or Password" : "Cancel"}
+          </button>
+          {showeditForm && <EditUserForm />}
         </div>
         <div className="profile_NoteSection">
           <h3>My notes</h3>
           <div className="profil_Notes">
-            {userNotes.map((note) => (
-              <Note key={note._id} note={note} />
-            ))}
+            {userNotes.length === 0 ? (
+              <p className="noNotes">You have not notes yet</p>
+            ) : (
+              <>
+                {userNotes.map((note) => (
+                  <Note key={note._id} note={note} />
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>

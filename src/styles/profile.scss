@@ -21,6 +21,8 @@
 
 	.profile_UserSection {
 		margin-bottom: auto;
+		display: flex;
+		flex-direction: column;
 
 		span {
 			font-weight: bold;
@@ -42,11 +44,29 @@
 		padding-bottom: 30px;
 
 		.profil_Notes {
-			//background-color: red;
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 20px;
 			justify-items: center;
 		}
 	}
+}
+
+.noNotes {
+	grid-column: span 3;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+
+.updateBTN{
+	width: 85%;
+	margin-top: 15px;
+ 	background-color: $profile_editBTN;
+	font-size: 1.07rem;
+	border: 1px solid black;
+	border-radius: 5px;
+
+	cursor: pointer;
+	align-self: center;
 }
