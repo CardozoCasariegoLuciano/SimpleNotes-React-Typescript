@@ -27,7 +27,7 @@ const Profile = () => {
                 Name: <span>{user.name}</span>
               </p>
               <p>
-                Email: <span>{user.email}</span>
+                Email: <span className="span_email">{user.email}</span>
               </p>
               <p>
                 Notes created: <span>{userNotes.length}</span>
@@ -35,7 +35,7 @@ const Profile = () => {
             </div>
           </div>
           <button
-            className="updateBTN"
+            className={"updateBTN " + (showeditForm && "editUserForm_open")}
             onClick={() => setShowEditForm(!showeditForm)}
           >
             {!showeditForm ? "Change Name or Password" : "Cancel"}

@@ -1,0 +1,61 @@
+@import "./variables.scss";
+
+.formNotes {
+	min-height: $minHeight_page;
+}
+
+.formNotes_content {
+	width: 80%;
+	margin: auto;
+	padding-top: 40px;
+
+	form {
+		display: flex;
+		flex-direction: column;
+
+		width: 400px;
+		margin: auto;
+
+		h3 {
+			text-align: center;
+			font-size: 1.5rem;
+		}
+
+		label {
+			font-size: 1.1rem;
+			margin: 10px 0px 10px -15px;
+		}
+
+		input,
+		textarea {
+			border: none;
+			outline: none;
+			font-size: 16px;
+			border-radius: 5px;
+		}
+
+		input {
+			height: 20px;
+			padding: 5px;
+		}
+
+		textarea{
+			resize: vertical;
+			max-height: 250px;
+			min-height: 75px;
+		}
+
+		button{
+			width: 150px;
+			margin: auto;
+			margin-top: 20px;
+			height: 30px;
+			font-size: 16px;
+			border: none;
+			border-radius: 15px;
+			outline: none;
+
+
+		}
+	}
+}

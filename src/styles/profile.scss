@@ -8,7 +8,7 @@
 .profile_content {
 	width: 70%;
 	margin: auto;
-	margin-top: 70px;
+	padding-top: 70px;
 	margin-bottom: 30px;
 
 	display: grid;
@@ -29,15 +29,22 @@
 		}
 
 		.userSection_box {
+			word-break: break-all;
 			border: 1px solid black;
 			border-radius: 15px;
+
 			.profile_UserData {
 				padding: 30px;
+				
+				.span_email {
+					display: block;
+				}
 			}
 		}
 	}
 
 	.profile_NoteSection {
+		margin-bottom: auto;
 		width: 100%;
 		border-radius: 15px;
 		border: 1px solid black;
@@ -58,15 +65,18 @@
 	font-weight: bold;
 }
 
-
-.updateBTN{
+.updateBTN {
 	width: 85%;
 	margin-top: 15px;
- 	background-color: $profile_editBTN;
+	background-color: $profile_editBTN;
 	font-size: 1.07rem;
 	border: 1px solid black;
 	border-radius: 5px;
 
 	cursor: pointer;
 	align-self: center;
+}
+
+.editUserForm_open {
+	background-color: $profile_editeBTN-active;
 }

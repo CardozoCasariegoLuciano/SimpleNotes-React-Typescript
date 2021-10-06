@@ -1,1 +1,24 @@
+.editUserForm{
+	width:  100%;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin-top: 15px;
+}
 
+.editUserForm_content{
+	width: 80%;
+	margin: auto;
+	padding: 10px 20px 30px 20px;
+	//background-color: red;
+
+	input{
+		margin-top: 5px;
+		width: 97%;
+		height: 1.2rem;
+		font-size: 15px;
+		border: none;
+		border-radius: 5px;
+		padding-left: 10px;
+		outline: none;
+	}
+}
