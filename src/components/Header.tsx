@@ -16,7 +16,7 @@ const Header = () => {
       cancelButtonText: "No, keep here",
     });
     if (promp.isConfirmed) {
-      removeToken("token");
+      removeToken();
       history.push("/login");
     }
   };

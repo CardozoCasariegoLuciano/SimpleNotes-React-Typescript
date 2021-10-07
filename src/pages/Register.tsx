@@ -100,7 +100,7 @@ const Register = () => {
           </Link>
         </div>
       </form>
-      <div className="modalAlertLogin">
+      <div className="genericAlertPosition">
         {isVisibleModal && (
           <div className="alertModalArea">
             <p>{modalText}</p>

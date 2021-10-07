@@ -7,3 +7,8 @@ export interface INoteState {
   author: IUserContex,
   publishedOn: string,
 }
+
+export interface IFormNote{
+  title: string,
+  description: string,
+}

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { verifyLoginForm, veryfyTokenStoragedOnLoginRegister } from "../helpers/functions";
+import {
+  verifyLoginForm,
+  veryfyTokenStoragedOnLoginRegister,
+} from "../helpers/functions";
 import { useShowAlert } from "../hooks/useShowAlert";
 import { IUserLogin } from "../interfaces/user_Interfaces";
 import { login } from "../services/login";
@@ -98,7 +101,7 @@ const Login = () => {
           </Link>
         </div>
       </form>
-      <div className="modalAlertLogin">
+      <div className="genericAlertPosition">
         {isVisibleModal && (
           <div className="alertModalArea">
             <p>{modalText}</p>

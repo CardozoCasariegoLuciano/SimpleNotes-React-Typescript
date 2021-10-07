@@ -2,7 +2,7 @@
 
 .note {
 	position: relative;
-	background-color:$noteCard_bg ;
+	background-color: $noteCard_bg;
 	border-radius: 10px;
 	width: 250px;
 	height: 300px;
@@ -25,10 +25,31 @@
 		padding: 0px;
 	}
 
-	.note_date {
+	.note_footer {
 		position: absolute;
 		bottom: 0;
-		right: 15px;
+		right: 0;
+
+		width: 100%;
+
+		display: flex;
+		justify-content: space-evenly;
+
+		padding-bottom: 10px;
+		
+		.note_editBTN {
+			text-decoration: none;
+			font-size: .8rem;
+			line-height: 1.3rem;
+			color: #830;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.note_date {
+			padding: 0;
+			margin: 0;
+		}
 	}
 }
 

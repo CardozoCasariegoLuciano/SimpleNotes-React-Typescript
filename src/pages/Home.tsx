@@ -1,17 +1,17 @@
 import NotesList from "../components/NotesList";
 import Serarcher from "../components/Searcher";
 import "../styles/home.scss";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import { SearchContext } from "../context/searchContext";
 import { loadNotes } from "../helpers/functions";
-import { INoteState } from "../interfaces/note_Interfaces";
+import {NoteContext} from "../context/notesContext";
 
 const Home = () => {
-  const [notes, setNotes] = useState<INoteState[]>([]);
+  const {notes, setNotes} = useContext(NoteContext)
   const { search } = useContext(SearchContext);
   useEffect(() => {
     loadNotes(setNotes);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const filteredNotes = notes.filter((not) => {
     switch (search.searchType) {
