@@ -1,26 +1,35 @@
 import NotesList from "../components/NotesList";
 import Serarcher from "../components/Searcher";
 import "../styles/home.scss";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../context/searchContext";
 import { loadNotes } from "../helpers/functions";
-import {NoteContext} from "../context/notesContext";
+import { NoteContext } from "../context/notesContext";
+import Loader from "../Loader";
 
 const Home = () => {
-  const {notes, setNotes} = useContext(NoteContext)
+  const [loading, setLoading] = useState(true);
+  const { notes, setNotes } = useContext(NoteContext);
   const { search } = useContext(SearchContext);
   useEffect(() => {
     loadNotes(setNotes);
+      setLoading(false);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const filteredNotes = notes.filter((not) => {
     switch (search.searchType) {
       case "TITLE":
-        return not.title.toLowerCase().includes(search.searchText.toLowerCase());
+        return not.title
+          .toLowerCase()
+          .includes(search.searchText.toLowerCase());
       case "USER_NAME":
-        return not.author.name.toLowerCase().includes(search.searchText.toLowerCase());
+        return not.author.name
+          .toLowerCase()
+          .includes(search.searchText.toLowerCase());
       default:
-        return not.title.toLowerCase().includes(search.searchText.toLowerCase());
+        return not.title
+          .toLowerCase()
+          .includes(search.searchText.toLowerCase());
     }
   });
 
@@ -29,12 +38,18 @@ const Home = () => {
       <div className="home">
         <div className="home_conten">
           <Serarcher />
-          {notes.length === 0 ? (
-            <p className="noNotesMsg">Empty data base</p>
+          {loading ? (
+            <Loader />
           ) : (
-            <div className="homeNoteList">
-              <NotesList notes={filteredNotes} />
-            </div>
+            <>
+              {notes.length === 0 ? (
+                <p className="noNotesMsg">Empty data base</p>
+              ) : (
+                <div className="homeNoteList">
+                  <NotesList notes={filteredNotes} />
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
