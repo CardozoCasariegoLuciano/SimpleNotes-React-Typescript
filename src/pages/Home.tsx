@@ -16,11 +16,11 @@ const Home = () => {
   const filteredNotes = notes.filter((not) => {
     switch (search.searchType) {
       case "TITLE":
-        return not.title.toLowerCase().includes(search.searchText);
+        return not.title.toLowerCase().includes(search.searchText.toLowerCase());
       case "USER_NAME":
-        return not.author.name.toLowerCase().includes(search.searchText);
+        return not.author.name.toLowerCase().includes(search.searchText.toLowerCase());
       default:
-        return not.title.toLowerCase().includes(search.searchText);
+        return not.title.toLowerCase().includes(search.searchText.toLowerCase());
     }
   });
 
@@ -30,7 +30,7 @@ const Home = () => {
         <div className="home_conten">
           <Serarcher />
           {notes.length === 0 ? (
-            <p className="noNotesMsg">Sin notas en la BD</p>
+            <p className="noNotesMsg">Empty data base</p>
           ) : (
             <div className="homeNoteList">
               <NotesList notes={filteredNotes} />

@@ -11,9 +11,7 @@ const NotesList = ({ notes }: NoteListProps) => {
     <div className="notesList">
         <div className="notes">
           {notes.length === 0 ? (
-            <p className="noNotesMsg centerOnPage">
-              Sin resultados para tu búsqueda
-            </p>
+            <p className="noNotesMsg centerOnPage">There are no coincidences for your search</p>
           ) : (
             notes.map((note) => <Note key={note._id} note={note} />)
           )}

@@ -9,10 +9,10 @@ const Header = () => {
   const BTN_logOut = async () => {
     const promp = await Swal.fire({
       title: "Are you sure?",
-      text: "Are you sure you want to log out",
+      text: "Are you sure you want to log out?",
       icon: "info",
       showCancelButton: true,
-      confirmButtonText: "Yes, move out!",
+      confirmButtonText: "Yes, get out!",
       cancelButtonText: "No, keep here",
     });
     if (promp.isConfirmed) {

@@ -12,8 +12,8 @@ const EditUserForm = () => {
         <label htmlFor="">Password</label>
         <input type="password" />
 
-        <p> Para esta sección cometí un error de diseño en el backend</p>
-        <p>Este formulario no tiene funcionalidad</p>
+        <p>On this section i have made a design mistake on the backend</p>
+        <p>This form has no functionality</p>
       </div>
     </div>
   );

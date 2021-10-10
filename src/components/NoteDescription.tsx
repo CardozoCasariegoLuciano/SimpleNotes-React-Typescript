@@ -32,7 +32,7 @@ const NoteDescription = ({ text, motherNoteID }: NoteDescriptionProps) => {
             id={`${motherNoteID}RM`}
             onClick={() => showCompleteText()}
           >
-            {!showMore ? "Leer mas" : "Mostrar menos"}
+            {!showMore ? "Show more" : "Show less"}
           </p>
         </div>
       ) : (

@@ -61,7 +61,7 @@ const FormNotes = () => {
       }
       history.push("/");
     } else {
-      const text = "Complete los campos para crear una nota";
+      const text = "Please complete all fields";
       showModal(text);
     }
   };

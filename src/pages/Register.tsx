@@ -31,7 +31,7 @@ const Register = () => {
       const text = "Passwords are diferents";
       showModal(text);
     } else if (!verifyRegisterForm(registData)) {
-      const text = "Datos ingresados incorrectos";
+      const text = "Fill the inputs with valid information";
       showModal(text);
     } else {
       const resp = await register(registData);
@@ -59,7 +59,6 @@ const Register = () => {
             value={registData.email}
             name="email"
             onChange={handleChange}
-            required
           />
 
           <label htmlFor="userName">userName</label>
@@ -70,7 +69,6 @@ const Register = () => {
             value={registData.name}
             name="name"
             onChange={handleChange}
-            required
           />
 
           <label htmlFor="pass">password</label>
@@ -81,7 +79,6 @@ const Register = () => {
             value={registData.password}
             name="password"
             onChange={handleChange}
-            required
           />
 
           <label htmlFor="passRep">Repeat your password</label>
@@ -92,7 +89,6 @@ const Register = () => {
             value={registData.repited_password}
             name="repited_password"
             onChange={handleChange}
-            required
           />
           <button type="submit">Register</button>
           <Link className="linkToLogIn" to="/login">

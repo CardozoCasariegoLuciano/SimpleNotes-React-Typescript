@@ -48,11 +48,11 @@ const Login = () => {
         }
         history.push("/");
       } else {
-        const text = respLogin.data.Mensaje;
+      const text = "Wrong email or password ";
         showModal(text);
       }
     } else {
-      const text = "Datos ingresados incorrectos";
+      const text = "Fill the inputs with valid information";
       showModal(text);
     }
   };
@@ -68,7 +68,6 @@ const Login = () => {
             id="email"
             name="email"
             onChange={handleChange}
-            required
             value={loginUser.email}
           />
 
@@ -79,7 +78,6 @@ const Login = () => {
             name="password"
             value={loginUser.password}
             onChange={handleChange}
-            required
           />
 
           <div className="checkBoxDiv">

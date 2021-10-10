@@ -35,7 +35,7 @@
 
 			.profile_UserData {
 				padding: 30px;
-				
+
 				.span_email {
 					display: block;
 				}
@@ -45,10 +45,10 @@
 
 	.profile_NoteSection {
 		margin-bottom: auto;
-		width: 100%;
+		width: 95%;
 		border-radius: 15px;
 		border: 1px solid black;
-		padding-bottom: 30px;
+		padding: 0px 20px 30px 20px;
 
 		.profil_Notes {
 			display: grid;
@@ -79,4 +79,89 @@
 
 .editUserForm_open {
 	background-color: $profile_editeBTN-active;
+}
+
+@media (max-width: 1500px) {
+	.profile_content {
+		grid-template-columns: 30% 70%;
+		.profile_NoteSection {
+			.profil_Notes {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	}
+}
+
+@media (max-width: 1150px) {
+	.profile_content {
+		width: 80%;
+		grid-template-columns: 95%;
+
+		.profile_UserSection {
+			.userSection_box {
+
+				.profile_UserData {
+					text-align: center;
+					padding: 0px 0px 10px 0px;
+					display: flex;
+					justify-content: space-evenly;
+
+					p {
+						display: inline;
+					}
+					.span_email {
+						display: inline;
+					}
+				}
+			}
+		}
+		.updateBTN {
+			width: 220px;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.profile_content {
+		.profile_NoteSection {
+			width: auto;
+			.profil_Notes {
+				grid-template-columns: repeat(1, 1fr);
+			}
+		}
+	}
+}
+
+@media (max-width:500px){
+.profile_content {
+
+		.profile_UserSection {
+			.userSection_box {
+
+				.profile_UserData {
+					text-align: center;
+					padding: 0px 0px 10px 0px;
+					display: initial;
+					//justify-content: space-evenly;
+
+					p {
+						display: block;
+					}
+					.span_email {
+						display: block;
+					}
+				}
+			}
+		}
+		.updateBTN {
+			width: 220px;
+		}
+	}
+}
+
+@media (max-width:380px){
+	.profile_content{
+		width: 98%;
+		grid-template-columns: 100%;
+	}
 }

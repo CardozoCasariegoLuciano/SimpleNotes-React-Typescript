@@ -50,7 +50,6 @@
 }
 
 .search_radioSeccion {
-  //background-color: red;
   display: flex;
   margin-top: 10px;
 
@@ -66,27 +65,17 @@
 
 @media (max-width: 700px) {
   .searcher_conteiner {
+    width: 90%;
     .seracher {
-      width: 100%;
-      .search_icon {
-      }
-      .input-search {
-      }
+      width: 90%;
     }
   }
 }
 
 @media (max-width: 380px) {
-  .searcher_conteiner {
-    .seracher {
-      .search_icon {
-      }
-
-      .input-search {
-        &::placeholder {
-          opacity: 0;
-        }
-      }
+  .search_radioSeccion{
+    p{
+      display: none;
     }
   }
 }

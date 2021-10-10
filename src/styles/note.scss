@@ -57,3 +57,11 @@
 	height: auto;
 	grid-row: span 2;
 }
+
+
+@media (max-width: 300px){
+	.note{
+		width: 100%;
+		min-width:200px ;
+	}
+}
