@@ -12,9 +12,7 @@ const NotFound = () => {
       <div className="notFound_conteiner">
         <p className="notFound_mainStatus">404</p>
         <p className="notFound_subtitle">Page not found</p>
-        <p className="notFound_btn" onClick={goBackBTN}>
-          Go back
-        </p>
+        <p className="notFound_btn" onClick={goBackBTN}> Go back </p>
       </div>
     </div>
   );

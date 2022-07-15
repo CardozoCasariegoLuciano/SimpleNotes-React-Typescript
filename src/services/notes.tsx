@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "../helpers/functions";
 import { IFormNote } from "../interfaces/note_Interfaces";
 
-const URL = `http://localhost:3500/api/note/`;
+const URL = `http://localhost:8118/api/note/`;
 
 export const getNotes = async () => {
     const token = getToken();

@@ -13,7 +13,7 @@ const Home = () => {
   const { search } = useContext(SearchContext);
   useEffect(() => {
     loadNotes(setNotes);
-      setLoading(false);
+    setLoading(false);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const filteredNotes = notes.filter((not) => {
@@ -58,3 +58,4 @@ const Home = () => {
 };
 
 export default Home;
+
